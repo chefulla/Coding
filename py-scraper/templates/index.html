@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Uni Web Scraper</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🔍 Web Scraper</h1>
+      <p class="subtitle">Enter a URL and get its title, headings, links, and images.</p>
+    </header>
+
+    <form id="scrape-form">
+      <input type="text" id="url-input" placeholder="e.g. example.com" required>
+      <button type="submit" id="scrape-btn">Scrape</button>
+    </form>
+
+    <div id="status"></div>
+
+    <div id="results" class="hidden">
+      <section class="summary-card">
+        <h2 id="result-title"></h2>
+        <p id="result-url" class="muted"></p>
+        <p id="result-meta"></p>
+        <p><strong>Word count:</strong> <span id="result-wordcount"></span></p>
+      </section>
+
+      <div class="tabs">
+        <button class="tab-btn active" data-tab="headings">Headings</button>
+        <button class="tab-btn" data-tab="links">Links</button>
+        <button class="tab-btn" data-tab="images">Images</button>
+      </div>
+
+      <div id="tab-headings" class="tab-content active">
+        <ul id="headings-list"></ul>
+      </div>
+
+      <div id="tab-links" class="tab-content">
+        <ul id="links-list"></ul>
+      </div>
+
+      <div id="tab-images" class="tab-content">
+        <div id="images-grid" class="images-grid"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
