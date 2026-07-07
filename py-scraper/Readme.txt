@@ -35,7 +35,14 @@ Both should print a version number, not an error.
 ### 2. Get the project files
 
 
-If it's in a Git repository instead:
+For this project i prefer using GitHub! 
+
+ Open this link https://github.com/chefulla/Coding/tree/main/py-scraper leading to the repository of the project where you can download it!
+
+OR 
+
+use this commands instead
+
 ```bash
 git clone <repository-url>
 cd py-scraper
@@ -58,7 +65,7 @@ Confirm you're in the right place — this command should list `Dockerfile`, `do
 ```bash
 ls -la
 ```
-(On Windows Command Prompt, use `dir` instead of `ls -la`.)
+(On Windows Command Prompt, use `dir` instead of `ls -la` (im working on MacOS).)
 
 ### 4. Build and run
 
@@ -68,7 +75,7 @@ docker compose up --build
 
 First run takes a minute or two — it downloads the Python base image and installs Flask, requests, BeautifulSoup, and gunicorn. You'll know it worked when you see a line like:
 ```
-[INFO] Listening at: http://0.0.0.0:5000
+ Listening at: http://0.0.0.0:5000 or Build finished 
 ```
 
 Leave this terminal window open — it needs to keep running for the app to stay accessible.
@@ -113,7 +120,7 @@ docker compose up
 
 ## Sites that won't work well
 
-Sites that load their content with JavaScript (rather than plain HTML) won't scrape properly with this tool, since it only fetches the raw HTML — it doesn't run JavaScript like a real browser does. Examples: youtube.com, most Google pages, and many modern single-page apps (React/Vue-based sites).
+There are some sites that load their content with JavaScript (rather than plain HTML). They won't scrape properly with this tool, since it only fetches the raw HTML — it doesn't run JavaScript like a real browser does. Examples: youtube.com, most Google pages, and many modern single-page apps (React/Vue-based sites).
 
 `quotes.toscrape.com` and `books.toscrape.com` are purpose-built sandbox sites made specifically for practicing web scraping, so they're good starting points if you want guaranteed clean results.
 
@@ -121,14 +128,14 @@ Sites that load their content with JavaScript (rather than plain HTML) won't scr
 
 ## Troubleshooting
 
-**"no configuration file provided" error**
-You're not in the project folder. Run `pwd` (Mac/Linux) or `cd` (Windows, no arguments) to check where you are, then `cd` into the `py-scraper` folder.
+**"no configuration file provided" error** (because this was my main error)
+You're not in the project folder. Run `pwd` (Mac/Linux) or `cd` (Windows) to check where you are, then `cd` into the `py-scraper` folder.
 
 **"no such file or directory" when trying to `cd`**
-Double check the exact folder name and path with `ls -la` (Mac/Linux) or `dir` (Windows) in the parent folder — watch out for typos, spaces, or case differences.
+Double check the exact folder name and path with `ls -la` (Mac/Linux) or `dir` (Windows) in the main folder — watch out for typos, spaces, or case differences.
 
 **"failed to read dockerfile: no such file or directory"**
-The file must be named exactly `Dockerfile` (capital D, rest lowercase). Rename it if needed:
+The file must be named exactly `Dockerfile` (capital D, rest lowercase). Rename it if needed with this command its the easiest way:
 ```bash
 mv DockerFile Dockerfile
 ```
@@ -142,7 +149,7 @@ ports:
 Then visit `http://localhost:5001` instead.
 
 **`docker: command not found`**
-Docker Desktop isn't installed or isn't running. Open the Docker Desktop app and wait for it to fully start before trying again.
+Docker Desktop isn't installed or isn't running. Open the Docker Desktop app and wait for it to fully start before trying again. On Mac it should appear a whale icon on the top right on the screen, and on windows it should appear bottom right, when you click the up arrow icon on the taskbar.
 
 ---
 
